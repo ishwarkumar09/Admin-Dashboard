@@ -17,18 +17,20 @@ function Layout() {
     <Box width="100%" height="100%">
       <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
         <Sidebar
-        user = {data || {}}
+          user={data || {}}
           isNonMobile={isNonMobile}
           drawerWidth="250px"
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
-        <Navbar
-          user = {data || {}}
-          isSidebarOpen={isSidebarOpen}
-          setIsSidebarOpen={setIsSidebarOpen}
-        />
-        <Outlet />
+        <Box flexGrow={1}>
+          <Navbar
+            user={data || {}}
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
